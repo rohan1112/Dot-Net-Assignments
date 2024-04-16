@@ -7,12 +7,12 @@ namespace BankAccount
         public SavingAccount(string name,double salary,string AccountType) : base(name,salary,AccountType){
 
         }
-        public new void Withdraw(float amt)
+        public override void Withdraw(float amt)
         {
             if (amt >0 && amt < Balance && Balance-amt>minBalance)
             {
                 Balance = Balance - amt;
-                
+               
             }
             else
             {

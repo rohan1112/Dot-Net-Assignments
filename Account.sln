@@ -49,6 +49,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee Task", "Day 9\Empl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee_V0", "Day 9\Employee_V0\Employee_V0.csproj", "{5C09C9F5-A1EC-4F77-A815-2071569AB6F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppADO", "ConsoleAppADO\ConsoleAppADO.csproj", "{2047743E-B72F-4848-94D3-6A2185B7856E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTaskADO", "EmployeeTaskADO\EmployeeTaskADO.csproj", "{174856B1-4742-4EE0-9699-5952AC500705}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,6 +130,14 @@ Global
 		{5C09C9F5-A1EC-4F77-A815-2071569AB6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C09C9F5-A1EC-4F77-A815-2071569AB6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C09C9F5-A1EC-4F77-A815-2071569AB6F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2047743E-B72F-4848-94D3-6A2185B7856E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2047743E-B72F-4848-94D3-6A2185B7856E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2047743E-B72F-4848-94D3-6A2185B7856E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2047743E-B72F-4848-94D3-6A2185B7856E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{174856B1-4742-4EE0-9699-5952AC500705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{174856B1-4742-4EE0-9699-5952AC500705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{174856B1-4742-4EE0-9699-5952AC500705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{174856B1-4742-4EE0-9699-5952AC500705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0521704D-876E-4FF3-AD7B-46A8B05B730C} = {090E9904-7276-46E2-81F9-B1835A8491EE}

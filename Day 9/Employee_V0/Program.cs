@@ -41,42 +41,38 @@ class EmployeeService : Irepository
 
     public Employee getemp(int id)
     {
-        Employee e= (Employee)(from emp in db where id == emp.Id select emp).FirstOrDefault();
+        Employee e= (from emp in db where id == emp.Id select emp).FirstOrDefault();
         return e;
-        throw new NotImplementedException();
+
     }
 
     public List<Employee> getemp(string name)
     {
         var e= from emp in db where emp.Name == name select emp;
         return e.ToList();
-        throw new NotImplementedException();
+
     }
 
     public void Remove(Employee e)
     {
         db.Remove(e);
-        throw new NotImplementedException();
     }
 
     public void update(int id, string name)
     {
-        // update db  where emp.Id ==id 
-        throw new NotImplementedException();
+        var a=from emp in db where id==emp.Id select emp;
+        foreach(var item in a){
+            Employee e=item as Employee;
+            e.Name=name;
+        }
     }
 }
 
 class Employee{
-    static int getId=0;
-    int id;
-    // int id;
-    // string empName,gender;
-    // double salary;
     public Employee(string empName,string gender,double salary){
         Name=empName;
         Salary=salary;
         Gender=gender;
-        id=++getId;
     }
 
     public string Name{
@@ -113,22 +109,41 @@ class program{
         employeeService.Add(e3);
         employeeService.Add(e4);
 
-        var a=employeeService.display();
-        foreach (var item in a)
-        {
-            System.Console.WriteLine($"Id:{item.Id} Name:{item.Name} Gender:{item.Gender} Salary:{item.Salary}");
-        }
+        System.Console.WriteLine("***********************************************************");
+        System.Console.WriteLine("Displaying all employees");
+       display();
 
+        System.Console.WriteLine("***********************************************************");
+        System.Console.WriteLine("Displaying Employee by id (2)");
         var emp=employeeService.getemp(2);
             System.Console.WriteLine($"Id:{emp?.Id} Name:{emp?.Name} Gender:{emp?.Gender} Salary:{emp?.Salary}");
         
+        System.Console.WriteLine("***********************************************************");
+        System.Console.WriteLine("Displaying employee by Name: Tejas");
         var empbyName=employeeService.getemp("Tejas");
          foreach (var item in empbyName)
         {
             System.Console.WriteLine($"Id:{item.Id} Name:{item.Name} Gender:{item.Gender} Salary:{item.Salary}");
         }
 
+        System.Console.WriteLine("***********************************************************");
+        System.Console.WriteLine("Displaying employees after removing 1st employee");
+         employeeService.Remove(e1);
+         display();
 
+        System.Console.WriteLine("***********************************************************");
+        System.Console.WriteLine("Displaying all employees after updating name with id 3 ");
+         employeeService.update(3,"updated Pratik");
+         display();
+
+
+        void display(){
+            var a=employeeService.display();
+        foreach (var item in a)
+        {
+            System.Console.WriteLine($"Id:{item.Id} Name:{item.Name} Gender:{item.Gender} Salary:{item.Salary}");
+        }
+        }
 
         }catch(Exception e){System.Console.WriteLine(e.StackTrace);}
     }

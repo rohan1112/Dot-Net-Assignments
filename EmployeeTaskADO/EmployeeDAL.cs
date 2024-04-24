@@ -21,14 +21,15 @@ namespace EmployeeTaskADO
         {
             using(SqlConnection con = new SqlConnection(connection))
             {
-                SqlCommand cmd = new SqlCommand("Select * from EmployeeTB", con);
+                // SqlCommand cmd = new SqlCommand("Select * from EmployeeTB", con);
+                SqlCommand cmd = new SqlCommand("Get EMP LIST", con);
+                cmd.CommandType=CommandType.StoredProcedure;
                 con.Open();
                 SqlDataReader rdr= cmd.ExecuteReader();
                 while (rdr.Read())
                 {
                     Console.WriteLine("{0} {1} {2}", rdr["Id"], rdr["Name"], rdr["Salary"]);
                 }
-
             }
         }
 
@@ -36,7 +37,9 @@ namespace EmployeeTaskADO
         {
            using(SqlConnection con = new SqlConnection(connection))
             {
-                SqlCommand cmd = new SqlCommand("Select * from EmployeeTB where Id=@id ", con);
+                // SqlCommand cmd = new SqlCommand("Select * from EmployeeTB where Id=@id ", con);
+                SqlCommand cmd = new SqlCommand("Search by id ", con);
+                cmd.CommandType=CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", id);
                 con.Open();
                 SqlDataReader rdr= cmd.ExecuteReader();
@@ -59,7 +62,9 @@ namespace EmployeeTaskADO
         {
             using (SqlConnection con = new SqlConnection(connection))
             {
-                SqlCommand cmd = new SqlCommand("Select * from EmployeeTB where Name=@name ", con);
+                // SqlCommand cmd = new SqlCommand("Select * from EmployeeTB where Name=@name ", con);
+                SqlCommand cmd = new SqlCommand("Search by Name ", con);
+                cmd.CommandType=CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", name);
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -83,7 +88,9 @@ namespace EmployeeTaskADO
         {
             using (SqlConnection con = new SqlConnection(connection))
             {
-                SqlCommand cmd = new SqlCommand("Delete from EmployeeTB where Id=@id ", con);
+                // SqlCommand cmd = new SqlCommand("Delete from EmployeeTB where Id=@id ", con);
+                SqlCommand cmd = new SqlCommand("Delete EMP", con);
+                cmd.CommandType=CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", id);
                 con.Open();
                 int record = cmd.ExecuteNonQuery();
@@ -98,7 +105,8 @@ namespace EmployeeTaskADO
 
             using (SqlConnection con = new SqlConnection(connection))
             {
-                SqlCommand cmd = new SqlCommand("update EmployeeTb set Name=@name,Salary=@salary where Id=@id ", con);
+                SqlCommand cmd = new SqlCommand("Update EMP", con);
+                cmd.CommandType=CommandType.StoredProcedure;
                 cmd.Parameters.Add("@id",SqlDbType.Int).Value=id;
                 cmd.Parameters.Add("@salary",SqlDbType.Float).Value=emp.Salary;
                 cmd.Parameters.Add("@name",SqlDbType.NVarChar).Value=emp.Name;
@@ -113,8 +121,9 @@ namespace EmployeeTaskADO
         {
             using (SqlConnection con = new SqlConnection(connection))
             {
-                SqlCommand cmd = new SqlCommand("update EmployeeTb set Name=@name,Salary=@salary where Id=@id ", con);
-                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                SqlCommand cmd = new SqlCommand("Update EMP", con);
+                cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Parameters.Add("@id",SqlDbType.Int).Value=id;
                 cmd.Parameters.Add("@salary", SqlDbType.Float).Value = emp.Salary;
                 cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = emp.Name;
                 con.Open();

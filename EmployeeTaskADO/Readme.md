@@ -11,4 +11,15 @@
 
     Tools->NuGet Package->Manage NuGet Packages for solution->Browse(Search for the Dependencies)
 
-# Creating Database
+# Creating Table
+
+    CREATE TABLE [dbo].[EmployeeTB] (
+        [Id]     INT            IDENTITY (1, 1) NOT NULL,
+        [NAME]   NVARCHAR (MAX) NULL,
+        [SALARY] FLOAT (53)     NULL,
+        PRIMARY KEY CLUSTERED ([Id] ASC)
+    );
+
+# Note: appsettings.json file contains the connection string and file path is bin/Debug/net8.0/appsettings.json
+
+        Replace the value of [Initial Catalog=EmployeeDB(Databse Name)]with your actual database name;
